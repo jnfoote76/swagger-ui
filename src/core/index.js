@@ -133,7 +133,7 @@ export default function SwaggerUI(opts) {
 
   const downloadSpec = (fetchedConfig) => {
     let localConfig = system.specSelectors.getLocalConfig ? system.specSelectors.getLocalConfig() : {}
-    let mergedConfig = deepExtend({}, localConfig, constructorConfig, fetchedConfig || {}, queryConfig)
+    let mergedConfig = deepExtend({}, constructorConfig, fetchedConfig || {}, queryConfig, localConfig)
 
     // deep extend mangles domNode, we need to set it manually
     if(domNode) {
